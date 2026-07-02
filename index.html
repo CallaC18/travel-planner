@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>旅行攻略规划器</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Travel Budget Planner</p>
+          <h1>旅行攻略规划器</h1>
+          <p class="subtitle">
+            输入基础信息，选择景点、酒店和航班，自动生成一份清晰的行程草稿。
+          </p>
+        </div>
+        <div class="hero-card">
+          <span>🧭</span>
+          <strong>先选路线，再定酒店，最后预留餐厅时间。</strong>
+        </div>
+      </section>
+
+      <section class="layout">
+        <form class="panel" id="tripForm">
+          <div class="panel-heading">
+            <span class="badge">01</span>
+            <div>
+              <h2>基础信息</h2>
+              <p>不用填预算，系统默认做舒适性价比规划。</p>
+            </div>
+          </div>
+
+          <div class="grid two">
+            <label>
+              目的地
+              <input id="destination" value="纽约" placeholder="例如：纽约 / 洛杉矶 / 日本" />
+            </label>
+            <label>
+              出行关系
+              <input id="relationship" value="情侣" placeholder="情侣 / 家人 / 朋友" />
+            </label>
+            <label>
+              人数
+              <input id="travelers" type="number" min="1" value="2" />
+            </label>
+            <label>
+              日期
+              <input id="dates" value="2026/9/16 - 2026/9/20" />
+            </label>
+            <label>
+              我的出发地
+              <input id="myOrigin" value="洛杉矶 LAX" />
+            </label>
+            <label>
+              对方出发地
+              <input id="partnerOrigin" value="人在纽约" />
+            </label>
+          </div>
+
+          <div class="panel-heading compact">
+            <span class="badge">02</span>
+            <div>
+              <h2>已选项目</h2>
+              <p>如果太多排不下，正式规划时需要删减。</p>
+            </div>
+          </div>
+
+          <div class="choice-grid" id="attractionChoices"></div>
+
+          <div class="grid two">
+            <label>
+              酒店
+              <select id="hotel">
+                <option>The Hotel @ Fifth Avenue｜17 W 32nd St</option>
+                <option>Midtown / Chelsea 区域待选</option>
+                <option>Long Island City 性价比备选</option>
+              </select>
+            </label>
+            <label>
+              航班偏好
+              <select id="flight">
+                <option>F1｜早到 + 20:00 后返程直飞</option>
+                <option>F2｜中午抵达 + 晚班返程</option>
+                <option>待官网确认具体航班</option>
+              </select>
+            </label>
+          </div>
+
+          <label class="wide">
+            额外备注
+            <textarea id="notes" rows="4">餐厅自选，只预留吃饭时间和预算。Luna Park 优先排周五。</textarea>
+          </label>
+
+          <button class="primary-button" type="submit">生成攻略草稿</button>
+        </form>
+
+        <section class="panel output-panel">
+          <div class="panel-heading">
+            <span class="badge">03</span>
+            <div>
+              <h2>攻略草稿</h2>
+              <p>生成后可以复制给 Codex 继续精修、查价、导出文档。</p>
+            </div>
+          </div>
+          <pre id="result">填写信息后点击“生成攻略草稿”。</pre>
+          <button class="secondary-button" id="copyButton" type="button">复制草稿</button>
+        </section>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
